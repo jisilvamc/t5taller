@@ -1,0 +1,38 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+<form action="/busqueda/" method="get">
+    <label>
+        <input type="text" value="" name="mytextbox" size="1"/>
+    </label>
+    <input type="submit" class="btn" value="Buscar" name="mybtn">
+</form>
+<ul>
+<p>Episodios: </p>
+{% if episodios != "" %}
+    {% for ep in episodios %}
+        <li><a href={{ ep.0 }}>{{ ep.1 }} </a></li>
+    {% endfor %}
+{% else %}
+    No hay episodios que coincidan con la búsqueda
+{% endif %}
+</ul>
+<ul>
+<p>Personajes: </p>
+{% if personajes != "" %}
+    {% for per in personajes %}
+        <li><a href={{ per.0 }}>{{ per.1 }} </a></li>
+    {% endfor %}
+{% else %}
+    No hay personajes que coincidan con la búsqueda
+{% endif %}
+</ul>
+<ul>
+<p>Lugares: </p>
+{% if lugares != "" %}
+    {% for lug in lugares %}
+        <li><a href={{ lug.0 }}>{{ lug.1 }} </a></li>
+    {% endfor %}
+{% else %}
+    No hay lugares que coincidan con la búsqueda
+{% endif %}
+</ul>

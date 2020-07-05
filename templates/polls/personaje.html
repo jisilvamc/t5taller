@@ -1,0 +1,28 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+<form action="/busqueda/" method="get">
+    <label>
+        <input type="text" value="" name="mytextbox" size="1"/>
+    </label>
+    <input type="submit" class="btn" value="Buscar" name="mybtn">
+</form>
+<ul>
+    <p> Nombre: {{ texto.0 }} </p>
+<p> Status: {{ texto.1 }} </p>
+<p> Especie: {{ texto.2 }} </p>
+<p> Tipo: {{ texto.3 }} </p>
+<p> Sexo: {{ texto.4 }} </p>
+    {% if texto.5 != "unknown" %}
+    <p> Localización actual: <a href={{ texto.6 }}> {{ texto.5 }} </a></p>
+        {% else %}
+        <p> Localización actual: {{ texto.5 }} </p>
+    {% endif %}
+{% if origen != "unknown" %}
+    <p>Origen: <a href={{ origen_url }}> {{ origen }} </a></p>
+{% else %}
+    <p>Origen: {{ origen }} </p>
+{% endif %}
+    <p> <img src={{ foto }} alt = {{ foto }}> </p>
+    {% for ans in answer %}
+        <li><a href={{ ans.url }}>{{ ans.texto }} </a></li>
+    {% endfor %}

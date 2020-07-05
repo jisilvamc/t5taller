@@ -1,0 +1,13 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+<form action="/busqueda/" method="get">
+    <label>
+        <input type="text" value="" name="mytextbox" size="1"/>
+    </label>
+    <input type="submit" class="btn" value="Buscar" name="mybtn">
+</form>
+<ul>
+<p>Lista de episodios: </p>
+    {% for ans in answer %}
+        <li><a href={{ ans.url }}>{{ ans.texto }} </a></li>
+    {% endfor %}
