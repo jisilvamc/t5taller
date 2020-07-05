@@ -4,7 +4,7 @@ from django.urls import reverse
 import requests
 import json
 
-url = "http://127.0.0.1:8000/"
+url = "https://t5taller-jisilvamc.herokuapp.com/"  # "http://127.0.0.1:8000/"
 
 
 class Lista:
